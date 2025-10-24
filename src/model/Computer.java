@@ -1,7 +1,7 @@
 package model;
 
 public class Computer {
-
+    private String serialNumber;
     /*
      * ATENCION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      * Agregue los atributos (relaciones) necesarios para satisfacer los
