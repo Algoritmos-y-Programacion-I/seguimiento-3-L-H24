@@ -69,17 +69,15 @@ public class SchoolController {
      */
 
     public String agregarIncidenteEnComputador(LocalDate date, String serialNumber, String description) {
-        String message;
-        Computer comp = findComputer(serialNumber);
-        if (comp != null){
-            comp.addIncident(new Incident(description));
-            message = "Incidente registrado para el numero serial " + serialNumber;
-        } else{
-            message = "Computador no encontrado.";
-        } 
-        return message;
-
+    String message;
+    Computer comp = findComputer(serialNumber);
+    if (comp != null){
+        comp.addIncident(new Incident(date, description)); 
+        message = "Incidente registrado para el numero serial " + serialNumber;
+    } else{
+        message = "Computador no encontrado.";
     } 
+    return message;}
 
     /**
      * Resuelve un incidente específico.
