@@ -1,25 +1,40 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Computer {
     private String serialNumber;
-    /*
-     * ATENCION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     * Agregue los atributos (relaciones) necesarios para satisfacer los
-     * requerimientos.
-     */
+    private int floor;
+    private int column; 
+    private ArrayList<Incident>incidents; 
 
-    public Computer() {
-
+    public  Computer(String serialNumber, int floor, int column) {
+        this.serialNumber = serialNumber;
+        this.floor = floor;
+        this.column = column;
+        this.incidents = new ArrayList<>();
     }
 
-    /*
-     * ATENCION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     * El siguiente metodo esta incompleto.
-     * Agregue los parametros y retorno que sean pertinentes.
-     * Agregue la logica necesaria.
-     */
-    public void addIncident() {
-
+    public String getSerialNumber(){
+        return serialNumber;
     }
+
+    public int getFloor(){
+        return floor;
+    }
+
+    public int getColumn(){
+        return column;
+    }
+
+    public ArrayList<Incident>getIncidents(){
+        return incidents;
+    }
+
+    public void addIncident(Incident incident) {
+        incidents.add(incident); 
+    }
+
+
 
 }

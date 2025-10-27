@@ -1,15 +1,12 @@
 package ui;
 
 import java.util.Scanner;
+import java.time.LocalDate;
+import model.SchoolController;
 
 public class SchoolApp {
 
-    /*
-     * ATENCION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     * Agregue los atributos (relaciones) necesarios para conectar esta clase con el
-     * modelo.
-     */
-
+    private final SchoolController computaricemos;
     private Scanner input;
 
     public static void main(String[] args) {
@@ -22,14 +19,9 @@ public class SchoolApp {
     // Constructor
     public SchoolApp() {
         input = new Scanner(System.in);
+        computaricemos = new SchoolController(5, 10);
     }
 
-    /*
-     * ATENCION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     * El siguiente metodo esta incompleto.
-     * Agregue la logica necesaria (instrucciones) para satisfacer los
-     * requerimientos
-     */
 
     public void menu() {
 
@@ -68,23 +60,48 @@ public class SchoolApp {
 
     }
 
-    /*
-     * ATENCION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     * Los siguientes metodos estan incompletos.
-     * Agregue la logica necesaria (instrucciones) para satisfacer los
-     * requerimientos
-     */
-
     public void registrarComputador() {
-
+        System.out.print("Ingrese el mnumero serial del computador: ");
+        String serialNumber = input.nextLine();
+        System.out.print("Ingrese el piso (0-4): ");
+        int floor = input.nextInt();
+        input.nextLine();
+        String result = computaricemos.agregarComputador(serialNumber, floor);
+        System.out.println(result);
     }
 
     public void registrarIncidenteEnComputador() {
+        System.out.print("Ingrese la fecha del reporte (AAAA-MM-DD): ");
+        String dataReport = input.nextLine();
+        LocalDate date = LocalDate.parse(dataReport);
+        System.out.print("Ingrese el serial del computador: ");
+        String serial = input.nextLine();
+        System.out.print("Ingrese la descripcion del incidente: ");
+        String description = input.nextLine();
+        String result = computaricemos.agregarIncidenteEnComputador(date, serial, description);
+        System.out.println(result);
 
     }
 
     public void consultarComputadorConMasIncidentes() {
-
+        String result = computaricemos.getComputerWithMostIncidents();
+        System.out.println(result);
     }
 
+    public void resolverIncidente() {
+        System.out.print("Ingrese el serial del computador: ");
+        String serial = input.nextLine();
+        System.out.print("Ingrese el indice del incidente: ");
+        int index = input.nextInt();
+        System.out.print("Ingrese las horas invertidas: ");
+        int hours = input.nextInt();
+        input.nextLine();
+        String result = computaricemos.solutionIncident(serial, index, hours);
+        System.out.println(result);
+    }
+
+    
 }
+
+
+

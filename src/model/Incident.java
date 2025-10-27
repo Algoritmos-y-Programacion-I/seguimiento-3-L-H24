@@ -8,7 +8,11 @@ public class Incident {
     private boolean solution; 
     private int solutionHours;
 
-    public incident (LocalDate dateReport, String description) {
+    public Incident(String description2) {
+        //TODO Auto-generated constructor stub
+    }
+
+    public void incident(LocalDate dateReport, String description) {
         this.dateReport = dateReport; 
         this.description = description; 
     }
@@ -30,19 +34,24 @@ public class Incident {
     }
 
     public void setDateReport(LocalDate dateReport) {
-        this.DateReport = dateReport; 
+        this.dateReport = dateReport; 
     }
 
     public void setDescription(String description) {
-        this.Description = description; 
+        this.description = description; 
     }                                  
 
     public void setSolution(boolean solution){
-        this.Solution = solution;
+        this.solution = solution;
     }                            
 
     public void setSolutionHours(int solutionHours) {
-        this.SolutionHours = solutionHours;
+        this.solutionHours = solutionHours;
+    }
+
+    public void resolve(int hours) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'resolve'");
     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 }
 
